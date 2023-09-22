@@ -15,5 +15,7 @@
 homepage: "https://yeswetrack.com"
 documentation: "https://yeswetrack.freshdesk.com/support/solutions/articles/103000232488-add-call-tracking-with-google-tag-manager"
 versions:
+- sha: 2eff1a0b22813d997a925dd624ad01284adb5e31
+    changeNotes: Change name Template.tpl to template.tpl
   - sha: 42e5e87414671ad78cd530ba78d68f5250b91749
     changeNotes: Initial Release
