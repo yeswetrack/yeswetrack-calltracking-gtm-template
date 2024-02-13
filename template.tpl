@@ -1,11 +1,3 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
 ___INFO___
 
 {
@@ -57,13 +49,6 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "help": "Find your ID in the YWT Call Tracking app"
-  },
-  {
-    "type": "TEXT",
-    "name": "dniVersion",
-    "simpleValueType": true,
-    "displayName": "Version Number",
-    "defaultValue": 1
   }
 ]
 
@@ -75,8 +60,7 @@ const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 const log = require('logToConsole');
 const dniID = encodeUriComponent(data.dniID);
-const verson = encodeUriComponent(data.dniVersion);
-const url = '//d3hd1n6e7vds0h.cloudfront.net/' + dniID + '.min.js?v=' + verson;
+const url = 'https://dni.yeswetrack.com/ct.min.js?id=' + dniID ;
 
 // log url to console while in preview & debug mode
 log(url);
@@ -121,6 +105,10 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://d3hd1n6e7vds0h.cloudfront.net/*"
+              },
+              {
+                "type": 1,
+                "string": "https://dni.yeswetrack.com/*"
               }
             ]
           }
