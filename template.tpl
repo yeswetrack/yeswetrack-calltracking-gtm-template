@@ -49,6 +49,13 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "help": "Find your ID in the YWT Call Tracking app"
+  },
+  {
+    "type": "TEXT",
+    "name": "dniVersion",
+    "simpleValueType": true,
+    "displayName": "Version Number",
+    "defaultValue": 1
   }
 ]
 
@@ -59,14 +66,21 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 const log = require('logToConsole');
+
+// encode dniID
 const dniID = encodeUriComponent(data.dniID);
-const url = 'https://dni.yeswetrack.com/ct.min.js?id=' + dniID ;
+
+// construct URL for YesWeTrack Call Tracking script
+const url = 'https://app.yeswetrack.com/scripts/ct.js?id=' + dniID;
 
 // log url to console while in preview & debug mode
 log(url);
 
-// call injectScript for url
-injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
+// inject script with custom ID and dynamic URL
+injectScript({
+  src: url,
+  id: dniID
+}, data.gtmOnSuccess, data.gtmOnFailure);
 
 
 ___WEB_PERMISSIONS___
@@ -104,11 +118,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://d3hd1n6e7vds0h.cloudfront.net/*"
-              },
-              {
-                "type": 1,
-                "string": "https://dni.yeswetrack.com/*"
+                "string": "https://app.yeswetrack.com/scripts/*"
               }
             ]
           }
@@ -142,5 +152,3 @@ scenarios:
 ___NOTES___
 
 Created on 09/22/2023, 12:18:22 PM
-
-
