@@ -15,5 +15,7 @@
 homepage: "https://yeswetrack.com"
 documentation: "https://yeswetrack.freshdesk.com/support/solutions/articles/103000232488-add-call-tracking-with-google-tag-manager"
 versions:
+  - sha: 963bd25774256e0ecd219aa38ec57c75e1607f9b
+    changeNotes: Updated script to new DNI url
   - sha: 2eff1a0b22813d997a925dd624ad01284adb5e31
     changeNotes: Initial Release
